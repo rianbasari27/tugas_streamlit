@@ -8,10 +8,10 @@ def print_pdf():
     st.header('PRINT STOK BARANG PDF')
     pilih = st.radio('Pilih :', ('Semua barang', 'By stok minimum'))
     if (pilih == 'Semua barang'):
-        query = f"SELECT * FROM `barang`"
+        query = f"SELECT kode_barang, nama_barang, satuan, CAST(stok AS UNSIGNED) FROM `barang`"
     elif (pilih == 'By stok minimum'):
         minimum = st.text_input('Input stok minimum')
-        query = f"SELECT * FROM `barang` where stok >= '{minimum}'"
+        query = f"SELECT kode_barang, nama_barang, satuan, CAST(stok AS UNSIGNED) FROM `barang` where stok >= '{minimum}'"
 
     cek = st.button ('Print PDF')
     if(cek):

@@ -28,7 +28,7 @@ def edit():
             #cek data, jika NOL = kode salah
             ada = (len(dataku))
             if (ada == 0):
-                st.error ('KODE SUDAH ADA, SAVE DI BATALKAN')
+                st.error ('BARANG TIDAK ADA!')
 
             else:
                 #SQL UPDATE, pake PARAMETER = %s (harus huruf %s)

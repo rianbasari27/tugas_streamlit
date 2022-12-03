@@ -3,9 +3,9 @@ import laporan.view_barang as view_barang
 import tambah
 import edit
 import delete
-import print_pdf
+import laporan.print_pdf as print_pdf
 import transaksi.input_stok as input_stok
-import barang_masuk
+import laporan.barang_masuk as barang_masuk
 
 def menu_home():
     st.image('img/gudang.jpg')

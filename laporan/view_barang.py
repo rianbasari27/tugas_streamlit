@@ -8,13 +8,13 @@ def lihat():
 	st.header('Lihat Stok Barang')
 	pilih = st.radio('Pilih :', ('Semua barang', 'By kode barang', 'By stok minimum'))
 	if (pilih == 'Semua barang'):
-		query = 'select * from barang order by kode_barang'
+		query = 'select kode_barang, nama_barang, satuan, CAST(stok AS UNSIGNED) from barang order by kode_barang'
 	elif (pilih == 'By kode barang'):
 		kode = st.text_input('Input kode barang')
-		query = f"select * from barang where kode_barang = '{kode}'"
+		query = f"select kode_barang, nama_barang, satuan, CAST(stok AS UNSIGNED) from barang where kode_barang = '{kode}'"
 	elif (pilih == 'By stok minimum'):
 		stok = st.number_input('Input stok minimum', 0)
-		query = f"select * from barang where stok >= '{stok}'"
+		query = f"select kode_barang, nama_barang, satuan, CAST(stok AS UNSIGNED) from barang where stok >= '{stok}'"
 
 	preview = st.button('Preview')
 
