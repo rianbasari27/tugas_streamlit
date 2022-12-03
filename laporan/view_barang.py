@@ -1,5 +1,6 @@
 import streamlit as st
-import db_connection	
+import db_connection
+import pandas as pd
 
 def lihat():
 	conn = db_connection.koneksi()
@@ -23,21 +24,17 @@ def lihat():
 		mycursor.execute(query)
 
 		data = mycursor.fetchall()
-		num = 0
-		totalStok = 0
-
+		
 		st.warning ('LAPORAN DATA BARANG')
-		st.write ('No - Kode - Nama Barang - Satuan - Stok')
-		st.write ('=======================================')
+		df = pd.DataFrame(data,
+		columns=('Kode', 'Nama Barang', 'Satuan', 'Stok'))
+
+		st.table(df)
+
+		totalStok = 0
 		for dt in data:
-			num = num + 1
-			kode = dt[0]
-			namaBarang = dt[1]
-			satuan = dt[2]
 			stok = dt[3]
-			
 			totalStok = totalStok + stok		
-			st.write (f'({num}). {kode}, {namaBarang}, {satuan},{stok}')
 			
 		st.success (f'Total Stok = {totalStok}')
 		st.balloons()

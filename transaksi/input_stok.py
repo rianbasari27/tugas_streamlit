@@ -6,7 +6,7 @@ import db_connection
 def tambah():
     conn = db_connection.koneksi()
 
-    query = "select kode_barang, nama_barang from barang"
+    query = "select * from barang"
     mycursor = conn.cursor()  
     mycursor.execute(query)  
     data = mycursor.fetchall()
@@ -15,7 +15,7 @@ def tambah():
     noVoucher = st.text_input('No. Voucher')
     tanggal = st.date_input('Tanggal Masuk')
     optionBarang = [row[1] for row in data]
-    namaBarang = st.selectbox('Nama Barang', optionBarang, format_func=[row[0] for row in data])
+    namaBarang = st.selectbox('Nama Barang', optionBarang)
     jumlah = st.number_input('Jumlah',0)
 
 
