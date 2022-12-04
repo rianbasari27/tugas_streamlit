@@ -14,13 +14,11 @@ def tambah():
     st.info('INPUT STOK BARANG')
     noVoucher = st.text_input('No. Voucher')
     tanggal = st.date_input('Tanggal Masuk')
-    # select box
+
     select = {dt[0]: dt[1] for dt in data}
-        
     def format_func(namaBarang):
         return select[namaBarang]
     
-    # optionBarang = [row[1] for row in data]
     namaBarang = st.selectbox("Nama Barang", options=list(select.keys()), format_func=format_func)
     jumlah = st.number_input('Jumlah',0)
 
@@ -38,21 +36,19 @@ def tambah():
             mycursor.execute(sql)  
             dataku = mycursor.fetchall()  
 
-            # cek jumlah data
             ada = (len(dataku))
             if (ada > 0):
                 st.error('KODE SUDAH ADA,SAVE DIBATALKAN')
 
             else:
-                # tmabah data
                 sql = "insert into barang_masuk (NO_VOUCHER, TGL, KODE_BARANG, JUMLAH) value (%s, %s, %s, %s)"
 
             dt = (noVoucher, tanggal, namaBarang, jumlah)
 
-            mycursor = conn.cursor()  # siapkan sql
-            mycursor.execute(sql, dt)  # run sql
-            conn.commit()  # data save
-            conn.close()  # tutup koneksi
+            mycursor = conn.cursor()  
+            mycursor.execute(sql, dt)  
+            conn.commit()  
+            conn.close() 
 
             st.header('data telah di simpan')
             st.balloons()

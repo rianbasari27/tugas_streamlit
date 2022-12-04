@@ -36,9 +36,8 @@ def menu_stok_masuk():
 def menu_print_pdf():
     print_pdf.print_pdf()
 
+
 # -----------HALAMAN PROGRAMMER------------------#
-
-
 def menu_programmer():
     st.info('INFO PROGRAMMER')
     st.image('img/kelompok4.jpg')
@@ -46,9 +45,9 @@ def menu_programmer():
     st.write('1. Dafit Syahrul Dharmawan (NIM : 200441180037)')
     st.write('2. M. Rian Basari (NIM : 200441180007)')
     st.write('3. Syuja Fadhlurrahman (NIM : 200441180044)')
-# ----------UTAMA,MENU SIDEBAR---------------#
 
 
+# ----------MENU SIDEBAR---------------#
 def menu():
     with st.sidebar:
         pilih = st.selectbox('Menu barang',

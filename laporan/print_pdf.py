@@ -48,9 +48,6 @@ def print_pdf():
 
         for dt in data:
             num = num + 1
-            # kode = dt[0]
-            # nama = dt[1]
-            # satuan = dt[2]
             stok = dt[3]
 
             pdf.set_font('helvetica','',12)
@@ -69,7 +66,6 @@ def print_pdf():
 
         pdf.set_text_color(220,50,50)
         pdf.cell(w=(pw), h=ch, txt=f"Total stok = {totalStok}", border=1, ln=0)
-        # pdf.cell(0,0.7, f'Total Stok = {totalStok}')
 
         conn.close()
         st.balloons()
