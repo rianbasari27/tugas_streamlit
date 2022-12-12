@@ -7,8 +7,7 @@ def lihat():
 
 	mycursor = conn.cursor()
 	mycursor.execute ('SELECT NO_VOUCHER, TGL, nama_barang, CAST(JUMLAH AS UNSIGNED) FROM barang_masuk \
-                    INNER JOIN barang ON barang_masuk.KODE_BARANG = barang.kode_barang \
-                    ORDER BY NO_VOUCHER;')
+                    INNER JOIN barang ON barang_masuk.KODE_BARANG = barang.kode_barang ORDER BY NO_VOUCHER;')
 
 	data = mycursor.fetchall()
 
